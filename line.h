@@ -5,27 +5,23 @@
 using namespace std;
 
 class Line {
-
-    private:
-
+private:
     Point a;
-
     Point b;
 
-    public:
-
+public:
+    
     Line(Point a, Point b);
 
-    Line(Line &other);
+    Line(const Line &other);
 
-    bool equals(Line &other);
+    bool equals(const Line &other) const;
 
     void flip();
 
     void move(double x, double y);
 
-    string toString();
+    string toString() const;
+};
 
-    };
-
-    #endif
+#endif

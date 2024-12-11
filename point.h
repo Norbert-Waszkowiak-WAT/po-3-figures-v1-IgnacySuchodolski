@@ -1,34 +1,34 @@
 #ifndef POINT_H
 #define POINT_H
+
 #include <string>
-using namespace std;
 
-class Point  {
-
-    private:
-
+class Point {
+private:
     double x;
-
     double y;
 
-    public:
+public:
 
     Point(double x, double y);
 
-    Point(Point &other);
 
-    bool equals(Point &other);
+    Point(const Point &other);
 
-    string toString();
+    bool equals(const Point &other) const;
 
-    double getX();
+    // Method to get the string representation of the point
+    std::string toString() const;
 
-    double getY();
+    // Accessor methods for x and y
+    double getX() const;
+    double getY() const;
 
+    // Method to flip the point (invert x and y)
     void flip();
 
-    void move(double a, double b); 
-
+    // Method to move the point by a, b
+    void move(double a, double b);
 };
 
-#endif
+#endif // POINT_H

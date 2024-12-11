@@ -4,29 +4,25 @@
 #include <iomanip>
 using namespace std;
 
-Line::Line(Point a,Point b): a(a), b(b) {};
 
-Line::Line(Line &other):  a(other .a),   b(other.b)  {};
+Line::Line(Point a, Point b): a(a), b(b) {}
 
-bool Line::equals(Line &other){
+Line::Line(const Line &other): a(other.a), b(other.b) {}
 
+bool Line::equals(const Line &other) const {
     return a.equals(other.a) && b.equals(other.b);
 }
 
-string Line::toString(){
-
-    return "Line("+a.toString()+", "+b.toString()+")";
+string Line::toString() const {
+    return "Line(" + a.toString() + ", " + b.toString() + ")";
 }
 
-void Line::flip(){
+void Line::flip() {
     a.flip();
-
     b.flip();
 }
 
-void Line::move(double p, double d){
+void Line::move(double p, double d) {
     a.move(p, d);
-
     b.move(p, d);
 }
-

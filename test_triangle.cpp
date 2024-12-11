@@ -1,6 +1,4 @@
-//
-// Created by nwaszkowiak on 26.11.24.
-//
+
 #include "catch_amalgamated.hpp"
 #include "triangle.h"
 #include "point.h"

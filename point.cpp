@@ -4,58 +4,43 @@
 #include <string>
 using namespace std;
 
-Point::Point(double x, double y): x(x), y(y){}
-Point::Point(Point &other): x(other.x), y(other.y){};
+// Constructor to initialize the point with x and y coordinates
+Point::Point(double x, double y): x(x), y(y) {}
 
-double Point::getX() {
+// Copy constructor with const reference
+Point::Point(const Point &other): x(other.x), y(other.y) {}
 
+// Getter for x coordinate (const because it does not modify the object)
+double Point::getX() const {
     return x;
-
 }
 
-
-double Point::getY(){
-
+// Getter for y coordinate (const because it does not modify the object)
+double Point::getY() const {
     return y;
-
 }
 
-
-bool Point::equals(Point &other) {
-
-    return  other.x == x && other.y == y;
-
+// Method to compare two points for equality (const because it does not modify the object)
+bool Point::equals(const Point &other) const {
+    return other.x == x && other.y == y;
 }
 
-
-string Point::toString() {
-
+// Method to get the string representation of the point
+string Point::toString() const {
     ostringstream oss;
-
-    oss << fixed << setprecision(1);
-
-    oss<< "Point(" << x << ", "<< y << ")";
-
+    oss << fixed << setprecision(1); // Format output with 1 decimal precision
+    oss << "Point(" << x << ", " << y << ")";
     return oss.str();
-
 }
 
-
-void Point::flip(){
-
-x = -x;
-
-y = -y;
-
+// Method to flip the point (invert x and y coordinates)
+void Point::flip() {
+    x = -x;
+    y = -y;
 }
 
-
-
-void Point::move(double a, double b){
-
-    x = x + a;
-
-    y = y + b;
-
+// Method to move the point by a, b
+void Point::move(double a, double b) {
+    x += a;
+    y += b;
 }
-
